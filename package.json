@@ -1,0 +1,12 @@
+{
+  "name": "html5boilerplate-cli",
+  "version": "1.0.0",
+  "description": "Generate an html5 boilerplate from a CLI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rj33v",
+  "license": "ISC",
+  "bin": "index.js"
+}

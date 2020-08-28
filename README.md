@@ -1,15 +1,15 @@
 # html5boilerplate-cli
 Generate a boilerplate via the cli. This uses the Node.js file system module which comes with Node.
 
-## Requirements
-* nodejs
-* npm
+## Prerequisites
 
-## How to use
-Install the project with
+- [Node and NPM](https://nodejs.org/)
 
-``` npm install -g ../html5boilerplate-cli ```
+## Running locally
+```bash
+# install the project with
+npm install -g ../html5boilerplate-cli
 
-After that run 
-
-```html5boilerplate-cli``` 
+#it will then available locally for building with
+html5boilerplate-cli
+``` 

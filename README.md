@@ -13,3 +13,7 @@ npm install -g ../html5boilerplate-cli
 #it will then available locally for building with
 html5boilerplate-cli
 ``` 
+### Use options for parameters
+```bash
+# add parameters to customise html filename and/or title
+html5boilerplate-cli --file-name mypage --html-title "My New Page"

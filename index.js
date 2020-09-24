@@ -1,22 +1,29 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
+const readline = require('readline');
 
-const args = process.argv;
+let fileName = 'index.html';
+let title = 'Title';
 
-const FILE_NAME_OPTION = '--file-name';
-const HTML_TITLE_OPTION = '--html-title';
+const interface = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
-const fileNameOptionIndex = args.findIndex((arg) => arg === FILE_NAME_OPTION);
-const htmlTitleOptionIndex = args.findIndex((arg) => arg === HTML_TITLE_OPTION);
+interface.question('\u279c ' + `Enter a filename (default ${fileName}): `, answer => {
+    if(answer && answer.length) {
+        fileName = `${answer}.html`
+    }
 
-const fileNameOption = fileNameOptionIndex > -1 && args[fileNameOptionIndex + 1];
-const titleOption = htmlTitleOptionIndex > -1 && args[htmlTitleOptionIndex + 1];
+    interface.question('\u279c ' + `Enter a page title (default ${title}): `, answer => {
+        if(answer && answer.length) {
+            title = answer;
+        }
+        interface.close();
 
-let fileName = fileNameOption ? `${fileNameOption}.html` : 'index.html';
-let title = titleOption || 'Title';
-
-const html = `<!DOCTYPE html>
+        const html = `
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -26,12 +33,16 @@ const html = `<!DOCTYPE html>
     </body>
 </html>`;
 
-fs.writeFile(fileName, html, error => {
-    if (error) {
-        console.log(error)
-    }
+        fs.writeFile(fileName, html, error => {
+            if (error) {
+                console.log(error)
+            }
+        });
+
+        console.log('\u263b ' + "File created "+ fileName    );
+        console.log('\u263b ' + "Boilerplate ready" );
+
+    });
+
 });
 
-
-console.log('\u279c ' + "Created "+ fileName    );
-console.log('\u279c ' + "Boilerplate ready" );
